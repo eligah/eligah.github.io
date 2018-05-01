@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    
+    <title>Git-notes | Zexing Jiang&#39;s Blog</title>
+    <meta name="renderer" content="webkit">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta name="description" content="Keep passion. Keep sensitive.">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Git-notes | Zexing Jiang&#39;s Blog">
+    <meta name="twitter:description" content="Keep passion. Keep sensitive.">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Git-notes | Zexing Jiang&#39;s Blog">
+    <meta property="og:description" content="Keep passion. Keep sensitive.">
+
+    
+    <meta name="author" content="Zexing Jiang">
+    
+    <link rel="stylesheet" href="/css/vno.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+
+    
+    <link rel="icon" href="/images/favicon.png">
+    
+
+    <meta name="generator" content="hexo"/>
+    
+
+    <link rel="canonical" href="http://yoursite.com/2018/04/30/git-notes/"/>
+
+    
+</head>
+
+<body class="home-template no-js">
+
+    <span class="mobile btn-mobile-menu">
+        <i class="fa fa-list btn-mobile-menu__icon"></i>
+        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+<header class="panel-cover panel-cover--collapsed" style="background-image: url(/images/background-cover.jpg)">
+  <div class="panel-main">
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        <a href="/" title="Go to the home of Zexing Jiang&#39;s Blog "><img src="/images/logo2.jpg" width="80" alt="Zexing Jiang&#39;s Blog logo" class="panel-cover__logo logo" /></a>
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage for Zexing Jiang&#39;s Blog">Zexing Jiang&#39;s Blog</a></h1>
+        
+        <span class="panel-cover__subtitle panel-subtitle">Keep passion. Keep sensitive.</span>
+        
+        <hr class="panel-cover__divider" />
+        <p class="panel-cover__description"></p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+
+        <div class="navigation-wrapper">
+          <div>
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+              <li class="navigation__item"><a href="/#blog" title="blog" class="blog-button">Blog</a></li>
+            
+              <li class="navigation__item"><a href="/archives">Archives</a></li>
+            
+              <li class="navigation__item"><a href="/books">Books</a></li>
+            
+              <li class="navigation__item"><a href="/aboutme">About me</a></li>
+            
+            </ul>
+          </nav>
+          </div>
+          <div>
+          <nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+  <!-- Weibo-->
+  
+
+  <!-- Github -->
+  
+  <li class="navigation__item">
+    <a href="https://github.com/eligah" title="查看我的GitHub主页" target="_blank">
+      <i class='social fa fa-github'></i>
+      <span class="label">Github</span>
+    </a>
+  </li>
+
+
+  <!-- Douban -->
+  
+  <li class="navigation__item">
+    <a href="https://www.douban.com/people/148411769/" title="查看我的Douban主页" target="_blank">
+      <i class='social fa fa-leaf'></i>
+      <span class="label">Douban</span>
+    </a>
+  </li>
+
+
+<!-- Stack Overflow -->
+        
+
+  <!-- Google Plus -->
+  
+
+<!-- Facebook -->
+
+  <li class="navigation__item">
+    <a href="https://www.facebook.com/profile.php?id=100015381183992" title="上Facebook找我" target="_blank">
+      <i class='social fa fa-facebook'></i>
+      <span class="label">Facebook</span>
+    </a>
+  </li>
+
+
+<!-- Linkedin -->
+
+  <li class="navigation__item">
+    <a href="https://www.linkedin.com/in/%E6%B3%BD%E6%98%9F-%E6%B1%9F-141301136/" title="Find me in Linkedin" target="_blank">
+      <i class='social fa fa-linkedin'></i>
+      <span class="label">Linkedin</span>
+    </a>
+  </li>
+
+  
+<!-- Twitter -->
+
+  
+
+
+
+
+  </ul>
+</nav>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay cover-slate"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single">
+
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2018-04-30T14:42:51.000Z" class="post-list__meta--date date">2018-04-30</time> &#8226; <span class="post-meta__tags tags">at&nbsp;
+  <a class="tag-link" href="/tags/git/">git</a>
+</span>
+    </div>
+    <h1 class="post-title">Git-notes</h1>
+  </header>
+
+  <section class="post">
+    <h1 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h1><p>Here are some git commands in case of oblivion.<br>[TOC]</p>
+<h2 id="Basic-operations"><a href="#Basic-operations" class="headerlink" title="Basic operations"></a>Basic operations</h2><ul>
+<li><code>git init</code>: create repository.</li>
+<li><code>git add</code>: add files from working directory to stage.</li>
+<li><code>git commit -m &quot;message&quot;</code>: commit the changes from stage to master directory.</li>
+</ul>
+<h2 id="Version-control"><a href="#Version-control" class="headerlink" title="Version control"></a>Version control</h2><ul>
+<li><code>git status</code>: check if there is any changes in current directory and have not been synchronized.</li>
+<li><code>git diff filename</code>: check the the changes of a file.</li>
+<li><p><code>git log</code>: see the history commits from log and get the commit id.</p>
+<ul>
+<li><code>--pertty=oneline</code>: beautify them in oneline.</li>
+<li><code>HEAD</code>: current version.(after last commit)</li>
+<li><code>HEAD^</code>: last version.</li>
+<li><code>HEAD~n</code>:last n version.</li>
+</ul>
+</li>
+<li><p><code>git reflog</code>: get every history commits.</p>
+</li>
+<li><code>git reset --hard commit_id/pointer</code>: back to specific version.<code>--hard</code></li>
+</ul>
+<h2 id="Some-concepts"><a href="#Some-concepts" class="headerlink" title="Some concepts"></a>Some concepts</h2><p><img src="http://ww1.sinaimg.cn/large/0061aoY0ly1fquxufc9x8j30cq06iab3.jpg" alt="git_directory"><br>    Working directory<br>    stage<br>    master</p>
+<h2 id="Back-from-Changes"><a href="#Back-from-Changes" class="headerlink" title="Back from Changes"></a>Back from Changes</h2><ul>
+<li><code>git checkout -- readme.txt</code>:<ul>
+<li>If have not add, back to last commit.</li>
+<li>If have been added, but have not been commit. <code>git reset HEAD file</code> could help you to unstage, which put your file back to working directory.</li>
+<li>If have been commited, <code>git reset --hard commit_id</code> or <code>git reflog</code> to change another version, then push to origin.</li>
+</ul>
+</li>
+</ul>
+<h2 id="Delete-file"><a href="#Delete-file" class="headerlink" title="Delete file"></a>Delete file</h2><ul>
+<li><code>rm</code> : delete file in the working directory.</li>
+<li><code>git rm</code>: delete the file in the repository.</li>
+<li><code>git commit</code>, <code>git checkout</code>.</li>
+<li><code>git rm</code>: delete files in <code>.git</code>. After you delete it. You can only revert it to the last version.(cannot roll back to other version)</li>
+</ul>
+<h2 id="Remote-repository"><a href="#Remote-repository" class="headerlink" title="Remote repository"></a>Remote repository</h2><ul>
+<li><code>git remote add origin remote-repository-address</code>(if the remote repository is not empty, we should <code>pull</code> them in advance.)</li>
+<li><code>git branch --set-upstream branch-name origin/branch-name</code>: relate local branch and origin branch.</li>
+<li><code>git push -u origin branch-name</code>: <code>-u</code> make connection with the local  branch and origin/branch branch.</li>
+<li><code>git remote -v</code>: get remote branch information.</li>
+<li><strong>Best practice</strong>: keep the same name in local repository and remote repository. <code>git checkout -b branch-name origin/branch-name</code></li>
+</ul>
+<h2 id="Branch-management"><a href="#Branch-management" class="headerlink" title="Branch management"></a>Branch management</h2><ul>
+<li><code>git checkout -b branch_name</code>: create branch_name branch and switch to it.</li>
+<li><code>git branch branch_name</code>: create branch - branch_name</li>
+<li><code>git branch</code>: see current branch.</li>
+<li><code>git merge branch_name</code>: combine current branch with branch_name.</li>
+<li><code>git branch -d branch_name</code>: delete branch_name.</li>
+<li>When different branch changed the same file and have conflicts, we need to edit the file directly and commit the change again. Then, we can safely delete the unnecessary branch.</li>
+<li><code>git log --graph --pretty=oneline --abrev-commit</code>.</li>
+</ul>
+<h2 id="Tag-config"><a href="#Tag-config" class="headerlink" title="Tag config"></a>Tag config</h2><ul>
+<li><code>git tag v_num -m &quot;info&quot;</code>: create a snapshoot for current version.</li>
+<li><code>git tag v_num prev_version</code></li>
+<li><code>git show v_num</code></li>
+<li><code>git tag -d v_num</code></li>
+<li><code>git push origin &lt;tagname&gt;</code></li>
+<li><code>git push origin --tags</code>: push all tags which have not been pushed.</li>
+<li><code>git push origin :refs/tags/v_num</code>: delete remote tags.</li>
+<li><code>git merge --no-ff -m &quot;any message&quot; branch</code>: merge as a commit.</li>
+</ul>
+<h2 id="Bug-fixing"><a href="#Bug-fixing" class="headerlink" title="Bug fixing"></a>Bug fixing</h2><ul>
+<li>When we have to interrupt our current work to start other work which have higher priority, we use <code>git stash</code> to save our working directory. Then, we can change our branch to fix bug. After complete the bug, we back to the prior branch, we can use <code>git stash</code> to revert.</li>
+<li><code>git stash list</code></li>
+<li><code>git stash apply</code></li>
+<li><code>git stash drop</code></li>
+<li><code>git stash pop</code></li>
+</ul>
+<h2 id="Ignore-file"><a href="#Ignore-file" class="headerlink" title="Ignore file"></a>Ignore file</h2><ul>
+<li>Ignore typies:<ul>
+<li>system files or created by dynamic system.</li>
+<li>internal file when compiling.</li>
+<li>sensitive configurations.</li>
+</ul>
+</li>
+<li><p>example</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"># Windows:</span><br><span class="line">Thumbs.db</span><br><span class="line">ehthumbs.db</span><br><span class="line">Desktop.ini</span><br><span class="line"></span><br><span class="line"># Python:</span><br><span class="line">*.py[cod]</span><br><span class="line">*.so</span><br><span class="line">*.egg</span><br><span class="line">*.egg-info</span><br><span class="line">dist</span><br><span class="line">build</span><br><span class="line"></span><br><span class="line"># My configurations:</span><br><span class="line">db.ini</span><br><span class="line">deploy_key_rsa</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>git add -f A.class</code>: add .class by force.</p>
+</li>
+<li><code>git check-ignore -v file_name</code>: check the conflicts in the .gitnore.</li>
+</ul>
+
+  </section>
+
+</article>
+
+
+
+            <footer class="footer">
+    <span class="footer__copyright">
+        &copy; 2018 - This site is created by <a href="/">@Zexing Jiang</a>.
+    </span>
+    <span class="footer__copyright">
+        The Contents on this site is licensed under <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">a Creative Commons Attribution 4.0 International license</a>.
+    </span>
+    <span class="footer__copyright">
+        The layout is powered by <a href="http://hexo.io">Hexo</a>， running on <a href="https://pages.github.com/">GitHub Pages</a>.
+    </span>
+    <span class="footer__copyright">
+        The theme is <a href="https://github.com/lenbo-ma/hexo-theme-vno">hexo-theme-vno</a>, modified from <a href="http://github.com/onevcat/vno" target="_blank">Vno</a>.
+    </span>
+</footer>
+
+        </div>
+    </div>
+
+    <script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+
+     
+</body>
+</html>

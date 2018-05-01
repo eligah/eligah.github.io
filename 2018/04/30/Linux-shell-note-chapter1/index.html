@@ -165,45 +165,7 @@
   </header>
 
   <section class="post">
-    <!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
-<ul>
-<li><a href="#overview">Overview</a><ul>
-<li><a href="#在终端中显示输出">在终端中显示输出</a></li>
-<li><a href="#命令解析">命令解析</a></li>
-<li><a href="#使用变量与环境变量">使用变量与环境变量</a></li>
-<li><a href="#使用函数添加环境变量">使用函数添加环境变量</a></li>
-<li><a href="#shell进行数学运算">shell进行数学运算</a></li>
-<li><a href="#重定向">重定向</a></li>
-<li><a href="#数组与关联数组">数组与关联数组</a></li>
-<li><a href="#别名">别名</a></li>
-<li><a href="#采集终端信息">采集终端信息</a></li>
-<li><a href="#获取并设置日期及延时">获取并设置日期及延时</a></li>
-<li><a href="#调试脚本">调试脚本</a></li>
-<li><a href="#函数和参数">函数和参数</a></li>
-<li><a href="#递归炸弹">递归炸弹</a></li>
-<li><a href="#保存退出状态">保存退出状态</a></li>
-<li><a href="#命令的选项">命令的选项</a></li>
-<li><a href="#在不按下回车键的情况下读入n个字符">在不按下回车键的情况下读入n个字符</a></li>
-<li><a href="#持续运行命令直至执行成功">持续运行命令直至执行成功</a></li>
-<li><a href="#字段分隔符与迭代器">字段分隔符与迭代器</a></li>
-<li><a href="#loops">loops</a><ul>
-<li><a href="#面向列表的for循环">面向列表的for循环</a></li>
-<li><a href="#迭代范围数字">迭代范围数字</a></li>
-<li><a href="#while-loop">while loop</a></li>
-<li><a href="#until">until</a></li>
-<li><a href="#compare">compare</a></li>
-<li><a href="#简化版ifelse">简化版if、else.</a></li>
-<li><a href="#多个判断条件">多个判断条件</a></li>
-<li><a href="#字符串比较">字符串比较</a></li>
-<li><a href="#测试空串">测试空串</a></li>
-</ul>
-</li>
-<li><a href="#交互shell非交互shell登陆shell非登陆shell">交互shell，非交互shell，登陆shell，非登陆shell</a></li>
-</ul>
-</li>
-</ul>
-<!-- /TOC -->
-<h1 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h1><p>本章内容从认识shell开始, 介绍了shell对于命令的处理, 以及最基本的逻辑结构的书写方式.</p>
+    <h1 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h1><p>本章内容从认识shell开始, 介绍了shell对于命令的处理, 以及最基本的逻辑结构的书写方式.<br>[TOC]</p>
 <h2 id="在终端中显示输出"><a href="#在终端中显示输出" class="headerlink" title="在终端中显示输出"></a>在终端中显示输出</h2><ul>
 <li>shell脚本通常以shebang起始,即<code>#!/bin/bash</code>, shebang表示应该使用解释器路径.</li>
 <li>脚本的执行方式<ol>
@@ -246,7 +208,7 @@
 <li><code>eval</code>可读取一连串的参数，然后再依参数本身的特性来执行.</li>
 </ul>
 <h2 id="shell进行数学运算"><a href="#shell进行数学运算" class="headerlink" title="shell进行数学运算"></a>shell进行数学运算</h2><ul>
-<li><code>let</code> 变量名前不需要用$,如<code>let result=no1+no2; echo $result</code></li>
+<li><code>let</code> 变量名前不需要用<code>$</code>,如<code>let result=no1+no2; echo $result</code></li>
 <li><code>(())</code> 如<code>result=$(( no1 + 50 ))</code> 或 <code>result=$ (( $no1 + 50 ))</code></li>
 <li><code>[] = let</code></li>
 <li><code>bc</code>命令（支持浮点数）<ul>
