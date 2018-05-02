@@ -21,7 +21,7 @@ $(document).ready(function() {
   if (window.location.pathname.substring(0, 5) == "/tag/") {
     $('.panel-cover').addClass('panel-cover--collapsed');
   }
-  
+
   if (window.location.pathname.substring(0, 6) == "/page/") {
     $('.panel-cover').addClass('panel-cover--collapsed');
   }

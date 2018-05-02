@@ -25,6 +25,7 @@
     
     <meta name="author" content="Zexing Jiang">
     
+
     <link rel="stylesheet" href="/css/vno.css">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
 
@@ -38,6 +39,7 @@
     <link rel="canonical" href="http://yoursite.com/2018/04/30/Linux-shell-note-chapter1/"/>
 
     
+
 </head>
 
 <body class="home-template no-js">
@@ -165,8 +167,46 @@
   </header>
 
   <section class="post">
-    <h1 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h1><p>本章内容从认识shell开始, 介绍了shell对于命令的处理, 以及最基本的逻辑结构的书写方式.<br>[TOC]</p>
-<h2 id="在终端中显示输出"><a href="#在终端中显示输出" class="headerlink" title="在终端中显示输出"></a>在终端中显示输出</h2><ul>
+    <h1><span id="overview">Overview</span></h1><p>本章内容从认识shell开始, 介绍了shell对于命令的处理, 以及最基本的逻辑结构的书写方式.<br><a id="more"></a></p>
+<div class="toc">
+
+<!-- toc -->
+<ul>
+<li><a href="#zai-zhong-duan-zhong-xian-shi-shu-chu">在终端中显示输出</a></li>
+<li><a href="#ming-ling-jie-xi">命令解析</a></li>
+<li><a href="#shi-yong-bian-liang-yu-huan-jing-bian-liang">使用变量与环境变量</a></li>
+<li><a href="#shi-yong-han-shu-tian-jia-huan-jing-bian-liang">使用函数添加环境变量</a></li>
+<li><a href="#shell-jin-xing-shu-xue-yun-suan">shell进行数学运算</a></li>
+<li><a href="#chong-ding-xiang">重定向</a></li>
+<li><a href="#shu-zu-yu-guan-lian-shu-zu">数组与关联数组</a></li>
+<li><a href="#bie-ming">别名</a></li>
+<li><a href="#cai-ji-zhong-duan-xin-xi">采集终端信息</a></li>
+<li><a href="#huo-qu-bing-she-zhi-ri-qi-ji-yan-shi">获取并设置日期及延时</a></li>
+<li><a href="#diao-shi-jiao-ben">调试脚本</a></li>
+<li><a href="#han-shu-he-can-shu">函数和参数</a></li>
+<li><a href="#di-gui-zha-dan">递归炸弹</a></li>
+<li><a href="#bao-cun-tui-chu-zhuang-tai">保存退出状态</a></li>
+<li><a href="#ming-ling-de-xuan-xiang">命令的选项</a></li>
+<li><a href="#zai-bu-an-xia-hui-che-jian-de-qing-kuang-xia-du-ru-n-ge-zi-fu">在不按下回车键的情况下读入n个字符</a></li>
+<li><a href="#chi-xu-yun-xing-ming-ling-zhi-zhi-zhi-xing-cheng-gong">持续运行命令直至执行成功</a></li>
+<li><a href="#zi-duan-fen-ge-fu-yu-die-dai-qi">字段分隔符与迭代器</a></li>
+<li><a href="#loops">loops</a><ul>
+<li><a href="#mian-xiang-lie-biao-de-for-xun-huan">面向列表的for循环</a></li>
+<li><a href="#die-dai-fan-wei-shu-zi">迭代范围数字</a></li>
+<li><a href="#while-loop">while loop</a></li>
+<li><a href="#until">until</a></li>
+<li><a href="#compare">compare</a></li>
+<li><a href="#jian-hua-ban-if-else">简化版if、else.</a></li>
+<li><a href="#duo-ge-pan-duan-tiao-jian">多个判断条件</a></li>
+<li><a href="#zi-fu-chuan-bi-jiao">字符串比较</a></li>
+<li><a href="#ce-shi-kong-chuan">测试空串</a></li>
+</ul>
+</li>
+<li><a href="#jiao-hu-shell-fei-jiao-hu-shell-deng-lu-shell-fei-deng-lu-shell">交互shell，非交互shell，登陆shell，非登陆shell</a></li>
+</ul>
+<!-- tocstop -->
+<p></div></p>
+<h2><span id="zai-zhong-duan-zhong-xian-shi-shu-chu">在终端中显示输出</span></h2><ul>
 <li>shell脚本通常以shebang起始,即<code>#!/bin/bash</code>, shebang表示应该使用解释器路径.</li>
 <li>脚本的执行方式<ol>
 <li>脚本名作为命令行参数 <code>source ./myScript.sh</code>, 不会执行子进程.</li>
@@ -178,10 +218,10 @@
 <li><code>echo</code> 引号避免特殊字符被解释,变量替换不发生在单引号中.</li>
 <li><code>printf</code> 格式替换 如<code>%-5s</code> 结尾需补充<code>\n</code>.</li>
 </ul>
-<h2 id="命令解析"><a href="#命令解析" class="headerlink" title="命令解析"></a>命令解析</h2><p><img src="http://ww1.sinaimg.cn/large/0061aoY0ly1fquuwz8o2aj30g80jwn0y.jpg" alt="command_process"></p>
+<h2><span id="ming-ling-jie-xi">命令解析</span></h2><p><img src="http://ww1.sinaimg.cn/large/0061aoY0ly1fquuwz8o2aj30g80jwn0y.jpg" alt="command_process"></p>
 <ul>
 <li><code>~ + user</code>表示user的bin目录.</li>
-<li>双引号 只经过参数扩展、命令代换和算术代换就可以送入执行步骤，而单引号转义符直接会被送入执行步骤<h2 id="使用变量与环境变量"><a href="#使用变量与环境变量" class="headerlink" title="使用变量与环境变量"></a>使用变量与环境变量</h2></li>
+<li>双引号 只经过参数扩展、命令代换和算术代换就可以送入执行步骤，而单引号转义符直接会被送入执行步骤<h2><span id="shi-yong-bian-liang-yu-huan-jing-bian-liang">使用变量与环境变量</span></h2></li>
 <li>环境变量是shell用于保存需用到的配置信息如可用的打印机,搜索路径等.</li>
 <li>命名<ul>
 <li>linux文件/文件夹命名: <code>-</code>.</li>
@@ -202,12 +242,12 @@
 </li>
 <li><code>[]</code> 表示test命令 必须要空格隔开.</li>
 </ul>
-<h2 id="使用函数添加环境变量"><a href="#使用函数添加环境变量" class="headerlink" title="使用函数添加环境变量"></a>使用函数添加环境变量</h2><ul>
+<h2><span id="shi-yong-han-shu-tian-jia-huan-jing-bian-liang">使用函数添加环境变量</span></h2><ul>
 <li><code>${parameter:+expression}</code> 如果parameter有值且不为空, 则使用expression的值。</li>
 <li><code>prepend() { [ -d &quot;$2&quot; ] &amp;&amp; eval $1=\&quot;$2\$\{$1:+&#39;:&#39;\$$1\}\&quot; &amp;&amp; export $1; }</code></li>
 <li><code>eval</code>可读取一连串的参数，然后再依参数本身的特性来执行.</li>
 </ul>
-<h2 id="shell进行数学运算"><a href="#shell进行数学运算" class="headerlink" title="shell进行数学运算"></a>shell进行数学运算</h2><ul>
+<h2><span id="shell-jin-xing-shu-xue-yun-suan">shell进行数学运算</span></h2><ul>
 <li><code>let</code> 变量名前不需要用<code>$</code>,如<code>let result=no1+no2; echo $result</code></li>
 <li><code>(())</code> 如<code>result=$(( no1 + 50 ))</code> 或 <code>result=$ (( $no1 + 50 ))</code></li>
 <li><code>[] = let</code></li>
@@ -218,14 +258,14 @@
 </ul>
 </li>
 </ul>
-<h2 id="重定向"><a href="#重定向" class="headerlink" title="重定向"></a>重定向</h2><ul>
+<h2><span id="chong-ding-xiang">重定向</span></h2><ul>
 <li>重定向相当于输出流入文件; 管道相当于广义上的重定向, 输出流入其他程序</li>
 <li><code>&gt;</code>:add, <code>&gt;&gt;</code>:append; <code>&lt;</code>: 从文件像<code>stdin</code>那样读取程序</li>
 <li><code>cmd 2&gt;stderr.txt 1&gt;stdout.txt</code></li>
 <li><code>cmd 2&gt;&amp;1 all-out-put.txt</code></li>
 <li><code>cat a* | tee out.txt | cat -n</code> <code>tee</code> 命令,分叉 -a append</li>
 </ul>
-<h2 id="数组与关联数组"><a href="#数组与关联数组" class="headerlink" title="数组与关联数组"></a>数组与关联数组</h2><ul>
+<h2><span id="shu-zu-yu-guan-lian-shu-zu">数组与关联数组</span></h2><ul>
 <li>定义:<ul>
 <li>数组: <code>array_var=(test1 test2 test3 test4)</code></li>
 <li>关联数组: 1. <code>declare -A ass_array</code>; 2. <code>ass_array=([index1]=val1 [index2]=val2)</code></li>
@@ -234,11 +274,11 @@
 <li><code>@</code>,<code>*</code> 获得所有值</li>
 <li><code>${!ass_array[@]}</code> 获得所有索引</li>
 </ul>
-<h2 id="别名"><a href="#别名" class="headerlink" title="别名"></a>别名</h2><ul>
+<h2><span id="bie-ming">别名</span></h2><ul>
 <li><code>$ echo &#39;alias cmd=&quot;command seq&quot;&#39; &gt;&gt; ~/.bashrc</code></li>
 <li>使用原始名<code>\commend</code></li>
 </ul>
-<h2 id="采集终端信息"><a href="#采集终端信息" class="headerlink" title="采集终端信息"></a>采集终端信息</h2><ul>
+<h2><span id="cai-ji-zhong-duan-xin-xi">采集终端信息</span></h2><ul>
 <li><code>tput</code><ul>
 <li>ed: 清空到行尾;</li>
 <li>sc: 保存当前位置;</li>
@@ -247,11 +287,20 @@
 </li>
 <li><code>stty</code> 不显示终端输入.</li>
 </ul>
-<h2 id="获取并设置日期及延时"><a href="#获取并设置日期及延时" class="headerlink" title="获取并设置日期及延时"></a>获取并设置日期及延时</h2><ul>
-<li><code>date +%s</code>: 获得纪元时<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">echo Count:</span><br><span class="line">tput sc # loop 40s</span><br><span class="line">for count in `seq 0 40`</span><br><span class="line">do</span><br><span class="line">    tput rc</span><br><span class="line">    tput ed</span><br><span class="line">    echo -n $count</span><br><span class="line">    sleep 1</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+<h2><span id="huo-qu-bing-she-zhi-ri-qi-ji-yan-shi">获取并设置日期及延时</span></h2><ul>
+<li><code>date +%s</code>: 获得纪元时<pre><code class="bash">echo Count:
+tput sc # loop 40s
+for count in `seq 0 40`
+do
+  tput rc
+  tput ed
+  echo -n $count
+  sleep 1
+done
+</code></pre>
 </li>
 </ul>
-<h2 id="调试脚本"><a href="#调试脚本" class="headerlink" title="调试脚本"></a>调试脚本</h2><ul>
+<h2><span id="diao-shi-jiao-ben">调试脚本</span></h2><ul>
 <li><code>bash -x script.sh</code>: 打印运行完的每一行</li>
 <li><code>{start..end}</code>: 生成数列</li>
 <li><code>set</code> 用于关注部分代码<ul>
@@ -260,7 +309,7 @@
 </ul>
 </li>
 </ul>
-<h2 id="函数和参数"><a href="#函数和参数" class="headerlink" title="函数和参数"></a>函数和参数</h2><ul>
+<h2><span id="han-shu-he-can-shu">函数和参数</span></h2><ul>
 <li>函数定义： <code>fname() { statement; }</code></li>
 <li>函数传递参数： <code>fname arg1 arg2</code> ;</li>
 <li>函数参数引用：<ol>
@@ -269,14 +318,24 @@
 </ol>
 </li>
 </ul>
-<h2 id="递归炸弹"><a href="#递归炸弹" class="headerlink" title="递归炸弹"></a>递归炸弹</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">:() &#123;</span><br><span class="line">    : | : &amp; ##管道将输出结果作为另一个输入，子进程呈几何数增加， &amp; 表示后台运行</span><br><span class="line">&#125;; :</span><br></pre></td></tr></table></figure>
-<p><code>:</code> 是内置的命令，优先级高于函数。</p>
+<h2><span id="di-gui-zha-dan">递归炸弹</span></h2><pre><code>:() {
+    : | : &amp; ##管道将输出结果作为另一个输入，子进程呈几何数增加， &amp; 表示后台运行
+}; :
+</code></pre><p><code>:</code> 是内置的命令，优先级高于函数。</p>
 <ul>
 <li>’sh‘直接执行一个脚本文件是在一个子shell中运行的，而source则是在当前shell环境中运行的。</li>
 <li><code>export</code> 将变量，函数导入子进程中</li>
 </ul>
-<h2 id="保存退出状态"><a href="#保存退出状态" class="headerlink" title="保存退出状态"></a>保存退出状态</h2><p>成功退出为0<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">eval $@</span><br><span class="line">if [ $? -eq 0 ];</span><br><span class="line">then</span><br><span class="line">    echo "$CMD executed successfully"</span><br><span class="line">else</span><br><span class="line">    echo "$CMD terminated unsuccessfully"</span><br><span class="line">fi</span><br></pre></td></tr></table></figure></p>
-<h2 id="命令的选项"><a href="#命令的选项" class="headerlink" title="命令的选项"></a>命令的选项</h2><ul>
+<h2><span id="bao-cun-tui-chu-zhuang-tai">保存退出状态</span></h2><p>成功退出为0</p>
+<pre><code class="bash">eval $@
+if [ $? -eq 0 ];
+then
+    echo &quot;$CMD executed successfully&quot;
+else
+    echo &quot;$CMD terminated unsuccessfully&quot;
+fi
+</code></pre>
+<h2><span id="ming-ling-de-xuan-xiang">命令的选项</span></h2><ul>
 <li>options<ul>
 <li>短选项，可以组合。</li>
 <li>bsd 风格，<code>ps aux</code></li>
@@ -293,24 +352,62 @@
 </ul>
 </li>
 </ul>
-<h2 id="在不按下回车键的情况下读入n个字符"><a href="#在不按下回车键的情况下读入n个字符" class="headerlink" title="在不按下回车键的情况下读入n个字符"></a>在不按下回车键的情况下读入n个字符</h2><ul>
+<h2><span id="zai-bu-an-xia-hui-che-jian-de-qing-kuang-xia-du-ru-n-ge-zi-fu">在不按下回车键的情况下读入n个字符</span></h2><ul>
 <li><code>read -n variable_name</code>: 读入固定字符.</li>
 <li><code>read -s</code>： 无回显读密码.</li>
 <li><code>read -d delim_char var</code>: 以特定分隔符改动var.</li>
 </ul>
-<h2 id="持续运行命令直至执行成功"><a href="#持续运行命令直至执行成功" class="headerlink" title="持续运行命令直至执行成功"></a>持续运行命令直至执行成功</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">repeat()&#123;</span><br><span class="line">    while true;</span><br><span class="line">    do</span><br><span class="line">        $@ &amp;&amp; return;</span><br><span class="line">        ## sleep 30</span><br><span class="line">    done</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2><span id="chi-xu-yun-xing-ming-ling-zhi-zhi-zhi-xing-cheng-gong">持续运行命令直至执行成功</span></h2><pre><code class="bash">repeat(){
+    while true;
+    do
+        $@ &amp;&amp; return;
+        ## sleep 30
+    done
+}
+</code></pre>
 <p><code>true</code> 改为 <code>：</code> 避免生成子进程</p>
-<h2 id="字段分隔符与迭代器"><a href="#字段分隔符与迭代器" class="headerlink" title="字段分隔符与迭代器"></a>字段分隔符与迭代器</h2><p>IFS被设置为逗号时，shell将逗号视为一个定界符。<br>list 生成<code>{a...z}</code></p>
-<h2 id="loops"><a href="#loops" class="headerlink" title="loops"></a>loops</h2><h3 id="面向列表的for循环"><a href="#面向列表的for循环" class="headerlink" title="面向列表的for循环"></a>面向列表的for循环</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">for var in list;</span><br><span class="line">do</span><br><span class="line">    commends;</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
-<h3 id="迭代范围数字"><a href="#迭代范围数字" class="headerlink" title="迭代范围数字"></a>迭代范围数字</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">for(( i=0;i&lt;10;i++ ))</span><br><span class="line">&#123;</span><br><span class="line">    commends;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="while-loop"><a href="#while-loop" class="headerlink" title="while loop"></a>while loop</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">while condition</span><br><span class="line">do</span><br><span class="line">    commends</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
-<h3 id="until"><a href="#until" class="headerlink" title="until"></a>until</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">x=0;</span><br><span class="line">until [$x -eq 9 ];</span><br><span class="line">do</span><br><span class="line">    let x++;</span><br><span class="line">    echo $x;</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
-<h3 id="compare"><a href="#compare" class="headerlink" title="compare"></a>compare</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">if condition;</span><br><span class="line">then</span><br><span class="line">    commends;</span><br><span class="line">else if condition; then</span><br><span class="line">    commends;</span><br><span class="line">else</span><br><span class="line">    commends;</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
-<h3 id="简化版if、else"><a href="#简化版if、else" class="headerlink" title="简化版if、else."></a>简化版if、else.</h3><p>对条件使用<code>[]</code>, 相当于<code>test</code>命令.<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[ condition ] &amp;&amp; action; ##if condition = true；action</span><br><span class="line">[ condition ] || action; ##if condition = false; action</span><br></pre></td></tr></table></figure></p>
-<h3 id="多个判断条件"><a href="#多个判断条件" class="headerlink" title="多个判断条件"></a>多个判断条件</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[ $var1 -ne 0 -a $var2 -gt 2 ] ##逻辑与</span><br><span class="line">[ $var2 -ne 0 -o $var2 -gt 2 ]：##逻辑或</span><br></pre></td></tr></table></figure>
-<h3 id="字符串比较"><a href="#字符串比较" class="headerlink" title="字符串比较"></a>字符串比较</h3><p><code>[[ $str1 &gt; $str2 ]]</code>：如果str1的字母序比str2大，则返回真.<br><code>[[ $str1 &lt; $str2 ]]</code>：如果str1的字母序比str2小，则返回真.</p>
-<h3 id="测试空串"><a href="#测试空串" class="headerlink" title="测试空串"></a>测试空串</h3><p><code>[[ -z $str1 ]]</code> 空;<br><code>[[ -n $str1 ]]</code> 非空.</p>
-<h2 id="交互shell，非交互shell，登陆shell，非登陆shell"><a href="#交互shell，非交互shell，登陆shell，非登陆shell" class="headerlink" title="交互shell，非交互shell，登陆shell，非登陆shell"></a>交互shell，非交互shell，登陆shell，非登陆shell</h2><ol>
+<h2><span id="zi-duan-fen-ge-fu-yu-die-dai-qi">字段分隔符与迭代器</span></h2><p>IFS被设置为逗号时，shell将逗号视为一个定界符。<br>list 生成<code>{a...z}</code></p>
+<h2><span id="loops">loops</span></h2><h3><span id="mian-xiang-lie-biao-de-for-xun-huan">面向列表的for循环</span></h3><pre><code class="bash">for var in list;
+do
+    commends;
+done
+</code></pre>
+<h3><span id="die-dai-fan-wei-shu-zi">迭代范围数字</span></h3><pre><code class="bash">for(( i=0;i&lt;10;i++ ))
+{
+    commends;
+}
+</code></pre>
+<h3><span id="while-loop">while loop</span></h3><pre><code class="bash">while condition
+do
+    commends
+done
+</code></pre>
+<h3><span id="until">until</span></h3><pre><code class="bash">x=0;
+until [$x -eq 9 ];
+do
+    let x++;
+    echo $x;
+done
+</code></pre>
+<h3><span id="compare">compare</span></h3><pre><code class="bash">if condition;
+then
+    commends;
+else if condition; then
+    commends;
+else
+    commends;
+fi
+</code></pre>
+<h3><span id="jian-hua-ban-if-else">简化版if、else.</span></h3><p>对条件使用<code>[]</code>, 相当于<code>test</code>命令.</p>
+<pre><code class="bash">[ condition ] &amp;&amp; action; ##if condition = true；action
+[ condition ] || action; ##if condition = false; action
+</code></pre>
+<h3><span id="duo-ge-pan-duan-tiao-jian">多个判断条件</span></h3><pre><code class="bash">[ $var1 -ne 0 -a $var2 -gt 2 ] ##逻辑与
+[ $var2 -ne 0 -o $var2 -gt 2 ]：##逻辑或
+</code></pre>
+<h3><span id="zi-fu-chuan-bi-jiao">字符串比较</span></h3><p><code>[[ $str1 &gt; $str2 ]]</code>：如果str1的字母序比str2大，则返回真.<br><code>[[ $str1 &lt; $str2 ]]</code>：如果str1的字母序比str2小，则返回真.</p>
+<h3><span id="ce-shi-kong-chuan">测试空串</span></h3><p><code>[[ -z $str1 ]]</code> 空;<br><code>[[ -n $str1 ]]</code> 非空.</p>
+<h2><span id="jiao-hu-shell-fei-jiao-hu-shell-deng-lu-shell-fei-deng-lu-shell">交互shell，非交互shell，登陆shell，非登陆shell</span></h2><ol>
 <li>区别是否交互来自于是否能够立即执行输入的指令。读取的配置文件不同，交互式bash必然读取<code>~/.bashrc</code>文件；非交互式bash读取的是环境变量BASH_ENV（通常情况下）所指定的配置文件。</li>
 <li>区别是否登陆来自于启动shell是否需要login。启动shell时所执行的startup文件不同。登陆shell执行startup文件：<code>/etc/profile</code>,<code>$HOME/.profile</code>,<code>$HOME/.bash_login</code>,<code>$HOME/.bash_profile</code>，而非登陆shell执行的startup文件仅为：~/.bashrc。如ssh命令读取文件<code>/etc/bash.bashrc $HOME/.bashrc</code>。但是ssh登陆会话会额外读取<code>/etc/profile</code></li>
 <li>如果.bash_login或.bash_profile存在，则不会读取.profile。不过其他shell可能会读取该文件。</li>
@@ -343,7 +440,10 @@
 
     <script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
     <script src="/js/main.js"></script>
-
+    <!-- highlight.js代码高亮主题 script 引入-->
+    <script src="/plugins/highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad(); console.log("Highlight has loaded") </script>
+    <!-- highlight.js代码高亮主题 script 引入-->
      
 </body>
 </html>
