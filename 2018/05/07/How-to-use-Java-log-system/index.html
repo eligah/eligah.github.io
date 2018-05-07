@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    
+    <title>How to use Java log system | Zexing Jiang&#39;s Blog</title>
+    <meta name="renderer" content="webkit">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta name="description" content="Keep passion. Keep sensitive.">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="How to use Java log system | Zexing Jiang&#39;s Blog">
+    <meta name="twitter:description" content="Keep passion. Keep sensitive.">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="How to use Java log system | Zexing Jiang&#39;s Blog">
+    <meta property="og:description" content="Keep passion. Keep sensitive.">
+
+    
+    <meta name="author" content="Zexing Jiang">
+    
+
+    <link rel="stylesheet" href="/css/vno.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+
+    
+    <link rel="icon" href="/images/zx-logo.png">
+    
+
+    <meta name="generator" content="hexo"/>
+    
+
+    <link rel="canonical" href="http://yoursite.com/2018/05/07/How-to-use-Java-log-system/"/>
+
+    
+
+</head>
+
+<body class="home-template no-js">
+
+    <span class="mobile btn-mobile-menu">
+        <i class="fa fa-list btn-mobile-menu__icon"></i>
+        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+<header class="panel-cover panel-cover--collapsed" style="background-image: url(/images/background-cover.jpg)">
+  <div class="panel-main">
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        <a href="/" title="Go to the home of Zexing Jiang&#39;s Blog "><img src="/images/front-logo.jpg" width="80" alt="Zexing Jiang&#39;s Blog logo" class="panel-cover__logo logo" /></a>
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage for Zexing Jiang&#39;s Blog">Zexing Jiang&#39;s Blog</a></h1>
+        
+        <span class="panel-cover__subtitle panel-subtitle">Keep passion. Keep sensitive.</span>
+        
+        <hr class="panel-cover__divider" />
+        <p class="panel-cover__description"></p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+
+        <div class="navigation-wrapper">
+          <div>
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+              <li class="navigation__item"><a href="/#blog" title="blog" class="blog-button">Blog</a></li>
+            
+              <li class="navigation__item"><a href="/archives">Archives</a></li>
+            
+              <li class="navigation__item"><a href="/books">Books</a></li>
+            
+              <li class="navigation__item"><a href="/aboutme">About me</a></li>
+            
+            </ul>
+          </nav>
+          </div>
+          <div>
+          <nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+  <!-- Weibo-->
+  
+
+  <!-- Github -->
+  
+  <li class="navigation__item">
+    <a href="https://github.com/eligah" title="查看我的GitHub主页" target="_blank">
+      <i class='social fa fa-github'></i>
+      <span class="label">Github</span>
+    </a>
+  </li>
+
+
+  <!-- Douban -->
+  
+  <li class="navigation__item">
+    <a href="https://www.douban.com/people/148411769/" title="查看我的Douban主页" target="_blank">
+      <i class='social fa fa-leaf'></i>
+      <span class="label">Douban</span>
+    </a>
+  </li>
+
+
+<!-- Stack Overflow -->
+        
+
+  <!-- Google Plus -->
+  
+
+<!-- Facebook -->
+
+  <li class="navigation__item">
+    <a href="https://www.facebook.com/profile.php?id=100015381183992" title="上Facebook找我" target="_blank">
+      <i class='social fa fa-facebook'></i>
+      <span class="label">Facebook</span>
+    </a>
+  </li>
+
+
+<!-- Linkedin -->
+
+  <li class="navigation__item">
+    <a href="https://www.linkedin.com/in/%E6%B3%BD%E6%98%9F-%E6%B1%9F-141301136/" title="Find me in Linkedin" target="_blank">
+      <i class='social fa fa-linkedin'></i>
+      <span class="label">Linkedin</span>
+    </a>
+  </li>
+
+  
+<!-- Twitter -->
+
+  
+
+
+
+
+  </ul>
+</nav>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay cover-slate"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single">
+
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2018-05-07T07:08:31.000Z" class="post-list__meta--date date">2018-05-07</time> &#8226; <span class="post-meta__tags tags">at&nbsp;
+  <a class="tag-link" href="/tags/Java/">Java</a>
+</span>
+    </div>
+    <h1 class="post-title">How to use Java log system</h1>
+  </header>
+
+  <section class="post">
+    <h1><span id="overview">Overview</span></h1><p>LOG系统是一套用于跟踪程序状态的机制. 区别与直接控制台输出, 在高并发的情况下效率高. 而且框架实现有利于方便查看, 保存信息.<br><a id="more"></a></p>
+<div class="toc">
+
+<!-- toc -->
+<ul>
+<li><a href="#the-best-practices-of-using-log">The best practices of using Log</a></li>
+<li><a href="#log4j-logback-slf4j-de-guan-xi">log4j,logback,slf4j的关系</a></li>
+<li><a href="#logback-pei-zhi-wen-jian-de-shi-yong">logback 配置文件的使用</a><ul>
+<li><a href="#configuration">Configuration</a></li>
+<li><a href="#property-define">Property define</a></li>
+<li><a href="#appender">Appender</a></li>
+<li><a href="#logger">Logger</a></li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+<p></div></p>
+<h2><span id="the-best-practices-of-using-log">The best practices of using Log</span></h2><ol>
+<li>级别分类: DEBUG，INFO和ERROR. 将日志的重要程度进行分层, 不会造成混乱.</li>
+<li>日志记录的内容(易用性): 日志级别, 时, 地, 人(thread), 物.<ul>
+<li>日志级别：根据“一、只记录DEBUG，INFO和ERROR级别日志”，日志级别可取值有“DEBUG，INFO和ERROR”</li>
+<li>时间：日志记录行为发生时间</li>
+<li>地点：日志记录行为发生时所处类，根据具体情况可取“全限定类类名”或者“简单类类名”</li>
+<li>人物：进行日志记录行为的当前线程的线程名称</li>
+<li>事件：使用日志进行记录的事件内容</li>
+</ul>
+</li>
+<li>日志具有对机器可读性. linux系统下时常需要处理日志文件. 因此在基本的文件命令(grep, sed, cut, tail)使用时, 日志需要具有良好的格式.</li>
+</ol>
+<h2><span id="log4j-logback-slf4j-de-guan-xi">log4j,logback,slf4j的关系</span></h2><ul>
+<li>Log4j是Apache的一个开源项目，它为日志的输出提供了完美的解决方案，利用它可以在项目中高效的控制日志和归档.</li>
+<li>slf4j是日志框架的抽象, 支持使用遵循一套日志接口的日志框架快速切换.</li>
+<li>logback 是log4j 对于slf4j的适配层, 性能上优于log4j.</li>
+</ul>
+<h2><span id="logback-pei-zhi-wen-jian-de-shi-yong">logback 配置文件的使用</span></h2><p>resource 目录下的<code>logback.xml</code>, 如果需要覆盖默认配置, 建议命名<code>logback-spring.xml</code>.</p>
+<h3><span id="configuration">Configuration</span></h3><pre><code class="xml">&lt;configuration scan=&quot;true&quot; scanPeriod=&quot;60 seconds&quot; debug=&quot;false&quot;&gt;  
+
+&lt;/configuration&gt;  
+</code></pre>
+<ul>
+<li>scan属性如果设置为true，在配置文件发生变化时，会自动加载，默认时false。</li>
+<li>scanPeriod属性只有scan属性设置为true才会生效，表示扫描周期，默认为60s，注意要设置时间单位。</li>
+<li>debug为true时可以打印出logback内部日志信息，从而实时查看logback运行状态。</li>
+</ul>
+<h3><span id="property-define">Property define</span></h3><p>方便引用路径${LOG_PATH}, 设置时间戳, 定义上下文, 区分不同的程序.</p>
+<pre><code class="xml">&lt;property name=&quot;APP_Name&quot; value=&quot;LightQA&quot; /&gt;
+&lt;property name=&quot;LOG_PATH&quot; value=&quot;logs&quot;/&gt;
+&lt;property name=&quot;LOG_ARCHIVE&quot; value=&quot;${LOG_PATH}/archive&quot;/&gt;
+&lt;timestamp key=&quot;timestamp-by-second&quot; datePattern=&quot;yyyy-MM-dd HH:mm:ss&quot;/&gt;
+&lt;contextName&gt;${APP_Name}&lt;/contextName&gt;
+</code></pre>
+<h3><span id="appender">Appender</span></h3><pre><code class="xml">&lt;appender name=&quot;File-Appender&quot; class=&quot;ch.qos.logback.core.FileAppender&quot;&gt;
+    &lt;!-- append 是否追加日志 默认true --&gt;
+   &lt;file&gt;${LOG_PATH}/logfile-${timestamp-by-second}.log&lt;/file&gt;
+   &lt;encoder&gt;
+       &lt;!-- 日志的输出格式 -5level 日志级别, logger{}输出logger名称--&gt;
+       &lt;pattern&gt;%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} -%msg%n&lt;/pattern&gt;
+       &lt;!-- 输出pattern --&gt;
+       &lt;outputPatternAsHeader&gt;true&lt;/outputPatternAsHeader&gt;
+   &lt;/encoder&gt;
+&lt;/appender&gt;
+</code></pre>
+<p>rollingPolicy 设置每天生成日志</p>
+<pre><code class="xml">&lt;rollingPolicy class=&quot;ch.qos.logback.core.rolling.TimeBasedRollingPolicy&quot;&gt;
+       &lt;fileNamePattern&gt;${LOG_ARCHIVE}/rollingfile.%d{yyyy-MM-dd}.log&lt;/fileNamePattern&gt;
+       &lt;!--归档文件保留周期，这里30表示30天，超过后最老的日志被删除--&gt;
+       &lt;maxHistory&gt;30&lt;/maxHistory&gt;
+       &lt;!--定义日志最大量，超过了最老的日志将被删除，这里是10G--&gt;
+       &lt;totalSizeCap&gt;10240MB&lt;/totalSizeCap&gt;
+   &lt;/rollingPolicy&gt;
+</code></pre>
+<h3><span id="logger">Logger</span></h3><p>功能: 特定的类设置单独的日志输出<br>添加appender-ref ref = “appender-name” 为logger添加属性</p>
+<pre><code class="xml">&lt;logger name=&quot;com.netease.kaola.gaoshengli.learnspringboot.controller&quot; level=&quot;info&quot;&gt;
+   &lt;!--日志记录文件的appender--&gt;
+   &lt;!--&lt;appender-ref ref=&quot;File-Appender&quot;/&gt;--&gt;
+   &lt;!--归档文件的appender--&gt;
+   &lt;!--&lt;appender-ref ref=&quot;RollingFile-Appender&quot;/&gt;--&gt;
+   &lt;!--选择异步方式--&gt;
+   &lt;appender-ref ref=&quot;Async-Appender&quot;/&gt;
+&lt;/logger&gt;
+</code></pre>
+<p>root 相当于特殊的logger, 普通的logger从root节点继承属性.</p>
+
+  </section>
+
+</article>
+
+
+
+            <footer class="footer">
+    <span class="footer__copyright">
+        &copy; 2018 - This site is created by <a href="/">@Zexing Jiang</a>.
+    </span>
+    <span class="footer__copyright">
+        The Contents on this site is licensed under <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">a Creative Commons Attribution 4.0 International license</a>.
+    </span>
+    <span class="footer__copyright">
+        The layout is powered by <a href="http://hexo.io">Hexo</a>， running on <a href="https://pages.github.com/">GitHub Pages</a>.
+    </span>
+    <span class="footer__copyright">
+        The theme is <a href="https://github.com/lenbo-ma/hexo-theme-vno">hexo-theme-vno</a>, modified from <a href="http://github.com/onevcat/vno" target="_blank">Vno</a>.
+    </span>
+</footer>
+
+        </div>
+    </div>
+
+    <script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <!-- highlight.js代码高亮主题 script 引入-->
+    <script src="/plugins/highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad(); console.log("Highlight has loaded") </script>
+    <!-- highlight.js代码高亮主题 script 引入-->
+     
+</body>
+</html>
